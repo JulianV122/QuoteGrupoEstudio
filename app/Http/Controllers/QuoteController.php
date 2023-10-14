@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Quote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class QuoteController extends Controller
 {
@@ -24,9 +26,18 @@ class QuoteController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function indexMine()
+    {
+        $quotes = Quote::where('owner', Auth::id())->orderBy('created_at','desc')->paginate(5);
+
+        return view('quotes.index_mine',compact('quotes'));
+    }
+
     public function index()
     {
-        //
+        $quotes = Quote::orderBy('created_at','desc')->paginate(5);
+
+        return view('quotes.index',compact('quotes'));
     }
 
     /**

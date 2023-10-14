@@ -30,6 +30,9 @@ Route::get('/random',[App\Http\Controllers\QuoteController::class, 'randomQuote'
 
 
 Route::middleware(['auth']) -> group(function(){
+    /* CRUD Quotes */
+    Route::get('/quotes/me', [App\Http\Controllers\QuoteController::class,'indexMine']) -> name('quotes.mine');
+    Route::resource('quotes', App\Http\Controllers\QuoteController::class);
     Route::get('/profile',[App\Http\Controllers\ProfileController::class, 'edit']) -> name('profile.getform');
 
     Route::post('/profile',[App\Http\Controllers\ProfileController::class, 'update']) -> name('profile.update');
