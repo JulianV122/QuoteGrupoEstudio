@@ -2,8 +2,8 @@
 
 
 @section('content')
-    <div class="container">
-        <h1>Mis citas</h1>
+    <div class="container text-center"><h1 mb-2>Mis citas</h1>
+    <a href="{{ route('quotes.create') }}" class="btn btn-outline-success">Agregar</a>
 @if(count($quotes)>0)
 <table class="table table-striped">
     <thead>
@@ -39,7 +39,7 @@
                     {{$quote->updated_at}}
                 </td>
                 <td>
-                    ...
+                    <a href="{{ route('quotes.edit',[$quote -> id]) }}" class="btn btn-warning">Editar</a>
                 </td>
             </tr>
         @endforeach
