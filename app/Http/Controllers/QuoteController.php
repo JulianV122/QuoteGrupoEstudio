@@ -96,6 +96,7 @@ class QuoteController extends Controller
      */
     public function destroy(Quote $quote)
     {
-        //
+        $quote->delete();
+        return redirect(route('quotes.mine'))->with('status',"Cita {$quote->id} eliminada exitosamente");
     }
 }
