@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <p class="card-text">{{ $quote->message }}</p>
                     <h5 class="card-title">{{$quote->author}}</h5>
-                    <a href="#" class="card-link">Ver perfil de {{$quote->user->name}}</a>
+                    <a href="{{ route('profile.info',[$quote->user]) }}" class="card-link">Ver perfil de {{$quote->user->name}}</a>
                 </div>
             </div>
         @endforeach

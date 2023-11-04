@@ -23,4 +23,6 @@ class ProfileController extends Controller
 
         return redirect(route('home'))-> with('status','Perfil editado exitosamente');
     }
+
+
 }

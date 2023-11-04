@@ -13,8 +13,8 @@
                 <th scope="col">Autor</th>
                 <th scope="col">Año publicacion</th>
                 <th scope="col">Mensaje</th>
-                <th scope="col">Fecha creacion</th>
-                <th scope="col">Fecha Actualizacion</th>
+                <!-- <th scope="col">Fecha creacion</th>
+                <th scope="col">Fecha Actualizacion</th> -->
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
@@ -33,13 +33,14 @@
                 <td>
                     {{$quote->message}}
                 </td>
-                <td>
+                <!-- <td>
                     {{$quote->created_at}}
                 </td>
                 <td>
                     {{$quote->updated_at}}
-                </td>
+                </td> -->
                 <td>
+                    <a href="{{ route('quotes.show',[$quote -> id]) }}" class="btn btn-info">Ver</a>
                     <a href="{{ route('quotes.edit',[$quote -> id]) }}" class="btn btn-warning">Editar</a>
                     <form action=" {{ route('quotes.destroy',[$quote->id]) }}" method="POST">
                         @csrf
